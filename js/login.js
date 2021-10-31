@@ -83,28 +83,32 @@ h1.addEventListener("click", handleTitleClick);*/
 
 //h1.addEventListener("mouseenter", handleMouseEnter);
 
-/*
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input:first-child");
 const greeting = document.querySelector(".greeting");
 const HIDDEN_CLASSNAME = "hide";
 const USERNAME_KEY = "username";
+const savedUserName = localStorage.getItem(USERNAME_KEY);
+
 function paintGreetings(username) {
   greeting.innerText = `Hello ${username}`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
 }
+
 function onLoginSubmit(event) {
   event.preventDefault();
   loginForm.classList.add(HIDDEN_CLASSNAME);
-  //console.dir(loginForm);
+
   const username = loginInput.value;
   localStorage.setItem(USERNAME_KEY, username);
   paintGreetings(username);
 }
-loginForm.addEventListener("submit", onLoginSubmit);
-const savedUserName = localStorage.getItem(USERNAME_KEY);
+
 if (savedUserName === null) {
   loginForm.classList.remove(HIDDEN_CLASSNAME);
 } else {
+  loginForm.classList.add(HIDDEN_CLASSNAME);
   paintGreetings(savedUserName);
-}*/
+}
+
+loginForm.addEventListener("submit", onLoginSubmit);
